@@ -4,7 +4,6 @@ stages:
   - runScriptConfig:
       image: registry-vpc.cn-shanghai.aliyuncs.com/keking/maven:3.6.1-jdk-8-alpine
       shellScript: |-
-        git clone http://git.keking.cn/tangshd/kk-deploy-configure.git
         mvn clean install
     envFrom:
     - {}
