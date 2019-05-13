@@ -6,7 +6,12 @@ stages:
       shellScript: |-
         mvn clean install
     envFrom:
-    - {}
+    - sourceName: registry-pass
+      sourceKey: username
+      targetKey: username
+    - sourceName: registry-pass
+      sourceKey: password
+      targetKey: password
 - name: Publish
   steps:
   - publishImageConfig:
