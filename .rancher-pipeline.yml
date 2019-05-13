@@ -18,7 +18,7 @@ stages:
       buildContext: .
       tag: registry-vpc.cn-shanghai.aliyuncs.com/keking/example-greenhouse:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: registry-vpc.cn-shanghai.aliyuncs.com
+      registry: registry-vpc.cn-shanghai.aliyuncs.com/keking/
 - name: Deploy
   steps:
   - applyYamlConfig:
