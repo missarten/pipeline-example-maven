@@ -19,6 +19,9 @@ stages:
       tag: registry-vpc.cn-shanghai.aliyuncs.com/keking/example-greenhouse:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: registry-vpc.cn-shanghai.aliyuncs.com/keking/
+    env:
+      DOCKER_HOST: tcp://dind.devops-plat:2375
+      PLUGIN_DAEMON_OFF: true
 - name: Deploy
   steps:
   - applyYamlConfig:
