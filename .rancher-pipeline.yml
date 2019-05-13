@@ -3,8 +3,7 @@ stages:
   steps:
   - runScriptConfig:
       image: registry-vpc.cn-shanghai.aliyuncs.com/keking/maven:3.6.1-jdk-8-alpine
-      shellScript: |-
-        mvn clean install
+      shellScript: mvn clean install
     envFrom:
     - sourceName: registry-pass
       sourceKey: username
@@ -17,7 +16,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
+      tag: registry-vpc.cn-shanghai.aliyuncs.com/keking/example-greenhouse:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: registry-vpc.cn-shanghai.aliyuncs.com
 - name: Deploy
