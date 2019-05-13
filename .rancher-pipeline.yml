@@ -3,7 +3,9 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3.6.1-jdk-8-alpine
-      shellScript: mvn clean install
+      shellScript: |-
+        git clone http://git.keking.cn/tangshd/kk-deploy-configure.git
+        mvn clean install
 - name: Publish
   steps:
   - publishImageConfig:
