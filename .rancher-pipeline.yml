@@ -7,7 +7,12 @@ stages:
         git clone http://git.keking.cn/tangshd/kk-deploy-configure.git
         mvn clean install
     envFrom:
-    - {}
+    - sourceName: registry-pass
+      sourceKey: username
+      targetKey: username
+    - sourceName: registry-pass
+      sourceKey: password
+      targetKey: password
 - name: Publish
   steps:
   - publishImageConfig:
