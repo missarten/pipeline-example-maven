@@ -3,3 +3,6 @@ pipeline:
     image: maven:3-jdk-7	# use docker image
     commands:
     - mvn clean install
+
+
+branches: [ master ]
