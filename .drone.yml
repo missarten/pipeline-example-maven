@@ -2,4 +2,4 @@ pipeline:
   build: # step name
     image: maven:3-jdk-7	# use docker image
     commands:
-    - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    - mvn clean install
