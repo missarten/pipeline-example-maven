@@ -4,5 +4,14 @@ pipeline:
     commands:
     - mvn clean install
 
+  dingtalk:
+    image: xtony77/drone-dingtalk
+    secrets: 
+      - source: DINGTALK_HOOK
+        target: plugin_webhook
+    when:
+      status: [failure, success]
+      brach: [staging]
 
-branches: [ master ]
+branches:
+  include: [ master, feature/* ]
