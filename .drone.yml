@@ -6,10 +6,19 @@ pipeline:
       - .m2
     volumes:
       - /tmp/cache/.m2
+
   build: # step name
     image: maven:3-jdk-7	# use docker image
     commands:
     - mvn clean install
+
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - .m2
+    volumes:
+      - /tmp/cache/.m2
 
   dingtalk:
     image: lddsb/drone-dingtalk-message
