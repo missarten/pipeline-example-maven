@@ -5,7 +5,7 @@ pipeline:
     mount:
       - .m2
     volumes:
-      - /tmp/cache:/cache
+      - /tmp/cache/.m2
   build: # step name
     image: maven:3-jdk-7	# use docker image
     commands:
