@@ -1,8 +1,11 @@
-kind: pipeline
-name: default
+clone:
+    git:
+        image: plugins/git
+        tags: true
 
-steps:
-- name: test
-  image: maven:3-jdk-10
-  commands:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+pipeline:
+  steps:
+  - name: test
+    image: maven:3-jdk-10
+    commands:
+    - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
