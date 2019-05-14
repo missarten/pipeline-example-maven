@@ -1,14 +1,22 @@
 pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./.m2
+    volumes:
+      - /tmp/cache:/cache
   build: # step name
     image: maven:3-jdk-7	# use docker image
     commands:
     - mvn clean install
 
   dingtalk:
-    image: xtony77/drone-dingtalk
-    secrets: 
-      - source: DINGTALK_HOOK
-        target: plugin_webhook
+    image: lddsb/drone-dingtalk-message
+    settings:
+      token: 
+        from_secret: DINGTALK_HOOK
+      type: markdown
     when:
       status: [failure, success]
       brach: [staging]
