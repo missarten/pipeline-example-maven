@@ -12,7 +12,7 @@ steps:
 
 - name: 构建镜像  
   image: plugins/docker
-  environment:
+  environments:
       - DOCKER_LAUNCH_DEBUG=true
   settings:
     repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
