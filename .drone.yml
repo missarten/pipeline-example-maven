@@ -16,7 +16,7 @@ steps:
 volumes:
 - name: cache
   host:
-    path: /var/lib/cache
+    path: /tmp/cache/.m2
 
 - name: dingtalk
   image: lddsb/drone-dingtalk-message
