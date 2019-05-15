@@ -11,7 +11,7 @@ steps:
   - name: cache
     path: /drone/.m2 
     commands:
-  - mvn clean install
+    - mvn clean install
 
 volumes:
 - name: cache
