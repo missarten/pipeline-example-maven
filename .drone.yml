@@ -13,11 +13,6 @@ steps:
     commands:
     - mvn clean install
 
-volumes:
-- name: cache
-  host:
-    path: /tmp/cache/.m2
-
 - name: dingtalk
   image: lddsb/drone-dingtalk-message
   settings:
@@ -28,5 +23,13 @@ volumes:
     status: [failure, success]
     brach: [master]
 
-branches:
-  include: [ master, feature/* ]
+volumes:
+- name: cache
+  host:
+    path: /tmp/cache/.m2
+
+
+
+trigger:
+  branch:
+  - master
