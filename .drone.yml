@@ -19,10 +19,10 @@ steps:
       from_secret: docker_pass
     repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
     registry: registry-vpc.cn-shanghai.aliyuncs.com
-    auto_tag: true
+    tags: ${DRONE_BUILD_NUMBER}
 
 - name: 钉钉通知
-  image: guoxudongdocker/drone-dingtalk 
+  image: lddsb/drone-dingtalk-message 
   settings:
     token: 
       from_secret: dingding
