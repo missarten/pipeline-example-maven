@@ -12,10 +12,9 @@ steps:
 
 - name: 构建镜像  
   image: plugins/docker
-  environments:
-      - DOCKER_LAUNCH_DEBUG=true
   settings:
-    repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
+    repo: keking/pipeline-example-maven
+    registry: registry-vpc.cn-shanghai.aliyuncs.com
     auto_tag: true
     username: 
       from_secret: docker_user
