@@ -10,7 +10,7 @@ steps:
   volumes:
   - name: cache
     path: /drone/.m2 
-    commands:
+  commands:
     - mvn clean install
 
 - name: dingtalk
