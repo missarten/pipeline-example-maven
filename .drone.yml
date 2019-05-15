@@ -23,11 +23,14 @@ steps:
 
 - name: Kubernetes 部署
   image: guoxudongdocker/kubectl:v1.14.1  # 这个镜像自己去打即可
-  secrets: [ kubeconfig ]
+  environment:
+    KUBECONFIG:
+      from_secret: kubeconfig
   commands:
     - cat deployment.yaml
     - ls   
-    - ${kubeconfig} > /root/.kube/config # k8s 的kubeconfig文件，可以有多个，部署到哪个集群就拷贝哪个kubeconfig文件
+    - ${KUBECONFIG} > /root/.kube/config # k8s 的kubeconfig文件，可以有多个，部署到哪个集群就拷贝哪个kubeconfig文件
+    - kubectl get node
     - kubectl apply -f deployment.yaml 
 
 - name: 钉钉通知
