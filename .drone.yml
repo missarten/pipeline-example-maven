@@ -32,17 +32,17 @@ steps:
     registry: registry-vpc.cn-shanghai.aliyuncs.com
     tags: ${DRONE_TAG=latest}
 
-- name: Kubernetes 部署
-  image: guoxudongdocker/kubectl:v1.14.1  # 这个镜像自己去打即可
-  environment:
-    KUBECONFIG:
-      from_secret: kubeconfig
-  commands:
-    - cat deployment.yaml
-    - echo '${KUBECONFIG}'   
-    - echo ${KUBECONFIG} > /root/.kube/config # k8s 的kubeconfig文件，可以有多个，部署到哪个集群就拷贝哪个kubeconfig文件
-    - kubectl get node
-    - kubectl apply -f deployment.yaml 
+# - name: Kubernetes 部署
+#   image: guoxudongdocker/kubectl:v1.14.1  # 这个镜像自己去打即可
+#   environment:
+#     KUBECONFIG:
+#       from_secret: kubeconfig
+#   commands:
+#     - cat deployment.yaml
+#     - echo '${KUBECONFIG}'   
+#     - echo ${KUBECONFIG} > /root/.kube/config # k8s 的kubeconfig文件，可以有多个，部署到哪个集群就拷贝哪个kubeconfig文件
+#     - kubectl get node
+#     - kubectl apply -f deployment.yaml 
 
 - name: 钉钉通知
   image: lddsb/drone-dingtalk-message 
