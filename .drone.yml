@@ -1,36 +1,32 @@
-pipeline:
-  restore-cache:
-    image: drillster/drone-volume-cache
-    restore: true
-    mount:
-      - /drone/.m2 
-    volumes:
-      - /tmp/cache/.m2
-  build: # step name
-    image: maven:3-jdk-7	# use docker image
-    environment: 
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: maven:3-jdk-7
+  environment: 
     - M2_HOME=/drone/.m2 
     - MAVEN_HOME=/drone/.m2 
+  volumes:
+  - name: cache
+    path: /drone/.m2 
     commands:
-    - mvn clean install
+  - mvn clean install
 
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    restore: true
-    mount:
-      - /drone/.m2 
-    volumes:
-      - /tmp/cache/.m2
+volumes:
+- name: cache
+  host:
+    path: /var/lib/cache
 
-  dingtalk:
-    image: lddsb/drone-dingtalk-message
-    settings:
-      token: 
-        from_secret: dingding
-      type: markdown
-    when:
-      status: [failure, success]
-      brach: [staging]
+- name: dingtalk
+  image: lddsb/drone-dingtalk-message
+  settings:
+    token: 
+      from_secret: dingding
+    type: markdown
+  when:
+    status: [failure, success]
+    brach: [master]
 
 branches:
   include: [ master, feature/* ]
