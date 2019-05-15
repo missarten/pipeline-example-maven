@@ -22,7 +22,7 @@ steps:
     auto_tag: true
 
 - name: 钉钉通知
-  image: lddsb/drone-dingtalk-message
+  image: guoxudongdocker/drone-dingtalk 
   settings:
     token: 
       from_secret: dingding
@@ -30,7 +30,6 @@ steps:
     message_color: true
     message_pic: true
     sha_link: true
-    lang: zh_CN
   when:
     status: [failure, success]
     brach: [master]
