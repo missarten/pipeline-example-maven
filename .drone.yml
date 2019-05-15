@@ -3,7 +3,7 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount:
-      - .m2
+      - /root/.m2
     volumes:
       - /tmp/cache/.m2
   build: # step name
@@ -15,10 +15,10 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount:
-      - .m2
+      - /root/.m2
     volumes:
       - /tmp/cache/.m2
-      
+
   dingtalk:
     image: lddsb/drone-dingtalk-message
     settings:
