@@ -8,6 +8,9 @@ pipeline:
       - /tmp/cache/.m2
   build: # step name
     image: maven:3-jdk-7	# use docker image
+    environment: 
+    - M2_HOME=/drone/.m2 
+    - MAVEN_HOME=/drone/.m2 
     commands:
     - mvn clean install
 
