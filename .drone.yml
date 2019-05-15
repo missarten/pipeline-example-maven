@@ -25,8 +25,6 @@ volumes:
   host:
     path: /tmp/cache/.m2
 
-
-
 trigger:
   branch:
   - master
