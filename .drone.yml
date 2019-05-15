@@ -18,7 +18,6 @@ pipeline:
       - .m2
     volumes:
       - /tmp/cache/.m2
-
   dingtalk:
     image: lddsb/drone-dingtalk-message
     settings:
