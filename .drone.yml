@@ -27,7 +27,8 @@ steps:
   - name: kube
     path: /root/.kube
   commands:
-    - kubectl get node
+    - ls
+    - kubectl apply -f deployment.yaml
 
 - name: 钉钉通知
   image: lddsb/drone-dingtalk-message 
