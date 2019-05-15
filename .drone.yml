@@ -4,13 +4,10 @@ name: pipeline-example-maven
 steps:
 - name: Kubernetes 部署
   image: guoxudongdocker/kubectl:v1.14.1  # 这个镜像自己去打即可
-  environment:
-    KUBECONFIG:
-      from_secret: kubeconfig
+  volumes:
+  - name: kube
+    path: /root/.kube
   commands:
-    - cat deployment.yaml
-    - echo '${KUBECONFIG}'   
-    - echo ${KUBECONFIG} > /root/.kube/config # k8s 的kubeconfig文件，可以有多个，部署到哪个集群就拷贝哪个kubeconfig文件
     - kubectl get node
 
 - name: Maven编译
@@ -61,6 +58,9 @@ volumes:
 - name: cache
   host:
     path: /tmp/cache/.m2
+- name: kube
+  host:
+    path: /tmp/cache/.kube/.test_kube
 
 trigger:
   branch:
