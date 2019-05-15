@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: pipeline-example-maven
 
 steps:
 - name: build
@@ -9,6 +9,14 @@ steps:
     path: /root/.m2
   commands:
     - mvn clean install
+
+- name: 构建镜像  
+  image: plugins/docker
+  settings:
+    username: docker_user
+    password: docker_pass
+    repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
+    auto_tag: true
 
 - name: dingtalk
   image: lddsb/drone-dingtalk-message
