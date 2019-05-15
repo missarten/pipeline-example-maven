@@ -13,12 +13,12 @@ steps:
 - name: 构建镜像  
   image: plugins/docker
   settings:
+    repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
+    auto_tag: true
     username: 
       from_secret: docker_user
     password: 
       from_secret: docker_pass
-    repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
-    auto_tag: true
 
 - name: dingtalk
   image: lddsb/drone-dingtalk-message
