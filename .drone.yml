@@ -18,11 +18,12 @@ pipeline:
       - .m2
     volumes:
       - /tmp/cache/.m2
+      
   dingtalk:
     image: lddsb/drone-dingtalk-message
     settings:
       token: 
-        from_secret: https://oapi.dingtalk.com/robot/send?access_token=df1daade4b0ad2ec02bef45ac30003da95d52ebf2aa204294730cb86c365c6dd
+        from_secret: df1daade4b0ad2ec02bef45ac30003da95d52ebf2aa204294730cb86c365c6dd
       type: markdown
     when:
       status: [failure, success]
