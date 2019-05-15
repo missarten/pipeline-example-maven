@@ -12,6 +12,8 @@ steps:
 
 - name: 构建镜像  
   image: plugins/docker
+  environment:
+      - DOCKER_LAUNCH_DEBUG=true
   settings:
     repo: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven
     auto_tag: true
