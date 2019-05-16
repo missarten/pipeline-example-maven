@@ -31,6 +31,6 @@ spec:
       - name: pipeline-docker-registry
       containers:
       - name: maven
-        image: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven:${DRONE_TAG}
+        image: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven:latest
         ports:
         - containerPort: 8080

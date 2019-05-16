@@ -1,5 +1,7 @@
 # Greenhouse Reference Application
 
+[![Build Status](http://drone.keking.cn/api/badges/guoxudong/pipeline-example-maven/status.svg)](http://drone.keking.cn/guoxudong/pipeline-example-maven)
+
 ## Overview
 
 Greenhouse is a Java web application built for the Spring community that has two primary goals:
