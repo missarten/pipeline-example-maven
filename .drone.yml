@@ -12,6 +12,9 @@ steps:
 
 - name: 构建镜像  
   image: plugins/docker
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
   settings:
     username: 
       from_secret: docker_user
@@ -50,6 +53,9 @@ volumes:
 - name: kube
   host:
     path: /tmp/cache/.kube/.test_kube
+- name: docker
+  host:
+    path: /var/run/docker.sock
 
 trigger:
   branch:

@@ -28,7 +28,7 @@ spec:
         app: greenhouse
     spec:
       imagePullSecrets:
-      - name: pipeline-docker-registry
+      - name: registry-pull-secret
       containers:
       - name: maven
         image: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven:latest
