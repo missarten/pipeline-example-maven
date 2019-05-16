@@ -2,6 +2,9 @@
 
 [![Build Status](http://drone.keking.cn/api/badges/guoxudong/pipeline-example-maven/status.svg)](http://drone.keking.cn/guoxudong/pipeline-example-maven)
 
+## 测试声明
+该项目为 Drone CI 构建工具测试使用，这里只做展示使用，并非本公司项目
+
 ## Overview
 
 Greenhouse is a Java web application built for the Spring community that has two primary goals:
