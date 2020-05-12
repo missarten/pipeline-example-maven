@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: build-maven
+spec:
+  inputs:
+    resources:
+      - name: source
+        type: git
+    params:
+      - name: CONTEXT
+        description: The build context used by Docker.
+        default: ./
+      - name: BUILDER_IMAGE
+        description: The image on which builds will run
+        default: pipeline-example-maven:latest
+  steps:
+    - name: maven
+      image: maven:3-jdk-7
+      workingDir: /workspace/source
+      command: ["mvn"]
+      args:
+        - clean
+        - install
