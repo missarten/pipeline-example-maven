@@ -13,7 +13,7 @@ spec:
   tasks:
     - name: build
       taskRef:
-        name: build
+        name: build-tesk
       params:
         - name: BUILDER_IMAGE
           value: $(params.BUILDER_IMAGE)
