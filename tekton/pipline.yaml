@@ -11,17 +11,9 @@ spec:
     - name: source
       type: git
   tasks:
-    - name: maven
-      taskRef:
-        name: build-maven
-      resources:
-        inputs:
-          - name: source
-            resource: source
     - name: build
-      runAfter: [maven]
       taskRef:
-        name: build-docker
+        name: build
       params:
         - name: BUILDER_IMAGE
           value: $(params.BUILDER_IMAGE)

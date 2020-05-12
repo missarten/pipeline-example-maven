@@ -18,6 +18,17 @@ spec:
         description: The image on which builds will run
         default: pipeline-example-maven:latest
   steps:
+    - name: maven
+      image: maven:3-jdk-7
+      workingDir: /workspace/source
+      command: ["mvn"]
+      args:
+        - clean
+        - install
+    - name: test
+      image: maven:3-jdk-7
+      workingDir: /workspace/source
+      command: ["ls"]
     - name: docker
       image: docker
       workingDir: /workspace/source
