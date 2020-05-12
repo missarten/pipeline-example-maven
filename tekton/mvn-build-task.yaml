@@ -22,3 +22,7 @@ spec:
       args:
         - clean
         - install
+    - name: test
+      image: maven:3-jdk-7
+      workingDir: /workspace/source
+      command: ["ls"]
