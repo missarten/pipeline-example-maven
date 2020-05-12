@@ -31,6 +31,6 @@ spec:
       - name: registry-pull-secret
       containers:
       - name: maven
-        image: registry-vpc.cn-shanghai.aliyuncs.com/keking/pipeline-example-maven:latest
+        image: ${CICD_IMAGE}:#Tag
         ports:
         - containerPort: 8080
