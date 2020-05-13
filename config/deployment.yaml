@@ -30,5 +30,6 @@ spec:
       containers:
       - name: maven
         image: pipeline-example-maven:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
